@@ -1,160 +1,711 @@
-*{box-sizing:border-box}
-body{margin:0;background:#f2f6fb;color:#203047;font-family:Arial,Helvetica,sans-serif;font-size:14px}
-.topbar{min-height:112px;background:#fff;display:grid;grid-template-columns:190px 1fr 150px;align-items:center;padding:14px 4%;gap:20px;border-bottom:1px solid #dbe4ef}
-.brand{display:flex;align-items:center;gap:10px;color:#1c4f83}
-.brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#e7f1fc;color:#1763a5;font-size:27px;font-weight:bold}
-.brand strong,
-.brand span{display:block}
-.brand span{font-size:11px;color:#6e7f91;margin-top:4px}
-.program-title{text-align:center;background:#124b83;color:#fff;padding:13px 12px;border-radius:10px;box-shadow:0 4px 10px #173c6320}
-.program-title span{font-size:12px;font-weight:bold;letter-spacing:.3px}
-.program-title h1{font-size:25px;margin:4px 0 0}
-.program-title small{font-size:12px}
-.grow-logo{text-align:center;color:#0873b8;font-size:14px}
-.grow-logo span{display:block;font-size:35px;color:#e74683}.container{max-width:1500px;margin:22px auto;padding:0 22px}.panel{background:#fff;border:1px solid #e0e8f1;border-radius:10px;box-shadow:0 2px 8px #233e5b08;margin-bottom:18px}.filters{display:flex;align-items:end;gap:18px;padding:15px 18px;background:#e7f1fc}.filters label,.form-grid label{display:flex;flex-direction:column;gap:6px;font-weight:600;color:#35506c;flex:1}.filters select,.form-grid input{width:100%;height:36px;border:1px solid #cbd8e6;border-radius:6px;padding:0 10px;background:#fff;color:#23384f;font:inherit}.btn{border:0;border-radius:6px;padding:10px 14px;font-weight:700;cursor:pointer;white-space:nowrap}.btn-primary{background:#155a98;color:white}.btn-primary:hover{background:#0d477b}.btn-light{background:#edf3f9;color:#35506c;border:1px solid #d8e2ed}.section-heading{display:flex;align-items:center;justify-content:space-between;padding:17px 18px 12px}.section-heading h2{font-size:17px;margin:0 0 5px;color:#183e66}.section-heading p{margin:0;color:#7b8b9c;font-size:12px}.table-wrap{overflow-x:auto;padding:0 12px}table{width:100%;border-collapse:collapse;min-width:1150px;font-size:12px}th{background:#174d80;color:#fff;text-align:center;padding:10px 7px;line-height:1.3}td{padding:10px 7px;text-align:center;border-bottom:1px solid #e5ebf2;color:#344b62}tbody tr:nth-child(even){background:#f6f9fc}tbody tr:hover{background:#eaf3fc}tfoot td{font-weight:bold;background:#e4eef8;color:#173f68}.row-actions{display:flex;gap:5px;justify-content:center}.icon-btn{border:0;background:#eaf1f8;border-radius:4px;padding:5px 7px;cursor:pointer;color:#1c578b}.delete-btn{color:#a43d3d;background:#fbeeee}.table-actions{display:flex;justify-content:space-between;align-items:center;padding:11px 18px;color:#75869a;font-size:12px}.summary-section{margin:24px 0}.summary-title{display:inline-block;background:#174d80;color:white;font-size:16px;padding:9px 18px;border-radius:7px 7px 0 0;margin:0}.metrics{display:grid;grid-template-columns:1fr 1fr 1fr 1.55fr;gap:10px}.metric{min-height:85px;border-radius:9px;padding:14px;display:flex;align-items:center;gap:13px}.metric-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;font-size:22px;font-weight:bold;background:#ffffff8c}.metric span,.metric small{display:block;font-size:12px;font-weight:bold}.metric strong{display:block;font-size:25px;margin-top:5px}.metric-blue{background:#bce8fb;color:#155c80}.metric-green{background:#bcebd0;color:#17623c}.metric-purple{background:#dfd0ff;color:#59379b}.metric-info{background:#d7eaff;color:#194c7b}.metric-info small{font-weight:normal;margin-top:6px;line-height:1.4}.detail-panel{padding-bottom:15px}.chart-wrap{height:280px;padding:0 20px}.hint{margin:0 18px;color:#6b7d90;font-size:12px;line-height:1.5}dialog{border:0;border-radius:12px;padding:0;width:min(760px,94vw);box-shadow:0 20px 70px #10243e55}dialog::backdrop{background:#10243e88}dialog form{padding:20px}.dialog-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.dialog-heading h2{margin:0;color:#174d80}.close{font-size:26px;border:0;background:none;cursor:pointer;color:#6d7d8d}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form-grid input{height:38px}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.form-error{color:#b42318;font-size:12px;min-height:15px}@media(max-width:800px){.topbar{grid-template-columns:1fr;gap:10px}.brand,.grow-logo{display:none}.filters{display:grid;grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.section-heading{gap:10px;align-items:flex-start}.form-grid{grid-template-columns:1fr}}@media(max-width:480px){.container{padding:0 10px}.filters{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}.section-heading{flex-direction:column}.program-title h1{font-size:21px}}
-.logo-ministerio {
-    width: 280px;
-    height: 100px;
-    object-fit: contain;
-    display: block;
+
+/* =====================================================
+   SISTEMA PROSANE - CRECER SANOS
+   Provincia de La Rioja
+   Diseño institucional y adaptable
+===================================================== */
+
+/* 1. CONFIGURACIÓN GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+:root {
+    --azul: #174f85;
+    --azul-oscuro: #123d68;
+    --azul-claro: #eaf3fb;
+    --celeste: #62b5e8;
+    --verde: #239b68;
+    --verde-claro: #e7f6ee;
+    --violeta: #8064c9;
+    --gris: #64748b;
+    --gris-claro: #f1f5f9;
+    --blanco: #ffffff;
+    --texto: #243447;
+    --borde: #dce5ee;
+    --sombra: 0 4px 15px rgba(20, 55, 90, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f7fb;
+    color: var(--texto);
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* =====================================================
+   2. ENCABEZADO PRINCIPAL
+===================================================== */
 
 .topbar {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px 4%;
+    background: var(--blanco);
+
     display: grid;
-    grid-template-columns: 180px 1fr 180px;
+    grid-template-columns: 140px minmax(0, 1fr) 140px;
     align-items: center;
     gap: 25px;
-    padding: 18px 6%;
-    min-height: 160px;
-    background: #ffffff;
+
+    border-bottom: 1px solid var(--borde);
 }
 
-/* Logo Ministerio */
+/* LOGO MINISTERIO */
+
 .brand {
+    width: 140px;
+    height: 120px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .logo-ministerio {
-    width: 130px;
-    height: 130px;
+    display: block;
+    width: 110px;
+    height: 110px;
+    max-width: 110px;
+    max-height: 110px;
     object-fit: contain;
+    object-position: center;
 }
 
-/* Título central */
+/* TÍTULO CENTRAL */
+
 .program-title {
-    background: #174f85;
-    color: white;
+    width: 100%;
+    min-width: 0;
+    min-height: 116px;
+
+    padding: 15px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
-    padding: 18px;
+    color: var(--blanco);
+    background: var(--azul);
+
     border-radius: 13px;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+    box-shadow: var(--sombra);
 }
 
 .program-title span {
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 .program-title h1 {
-    margin: 6px 0;
     font-size: 30px;
+    line-height: 1.2;
+    margin: 5px 0;
+    font-weight: 700;
 }
 
 .program-title small {
     font-size: 14px;
 }
 
-/* Logo Crecer Sanos */
+/* LOGO CRECER SANOS */
+
 .grow-logo {
+    width: 140px;
+    height: 120px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.logo-crecer {
-    width: 140px;
-    height: 130px;
-    object-fit: contain;
-}
-
-
-/* ENCABEZADO PROSANE */
-.topbar {
-    display: grid !important;
-    grid-template-columns: 160px minmax(0, 1fr) 160px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 25px !important;
-
-    width: 100% !important;
-    min-height: 160px !important;
-    height: auto !important;
-    padding: 15px 4% !important;
-    box-sizing: border-box !important;
     overflow: hidden;
 }
 
-/* LOGO MINISTERIO */
-.brand {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100%;
-}
-
-.logo-ministerio {
-    width: 125px !important;
-    height: 125px !important;
-    max-width: 100% !important;
-    object-fit: contain !important;
-}
-
-/* TÍTULO CENTRAL */
-.program-title {
-    width: 100% !important;
-    min-width: 0;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-/* LOGO CRECER SANOS */
-.grow-logo {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100%;
-}
-
 .logo-crecer {
-    width: 135px !important;
-    height: 125px !important;
-    max-width: 100% !important;
-    object-fit: contain !important;
+    display: block;
+    width: 115px;
+    height: 110px;
+    max-width: 115px;
+    max-height: 110px;
+    object-fit: contain;
+    object-position: center;
 }
 
-/* EVITAR DESBORDAMIENTO */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+/* =====================================================
+   3. CONTENEDOR PRINCIPAL
+===================================================== */
+
+.container {
+    width: 96%;
+    max-width: 1700px;
+    margin: 25px auto 40px;
 }
 
-/* ADAPTACIÓN A CELULARES */
-@media (max-width: 768px) {
+/* =====================================================
+   4. PANELES
+===================================================== */
+
+.panel {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    padding: 22px;
+    margin-bottom: 22px;
+}
+
+/* =====================================================
+   5. FILTROS
+===================================================== */
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(130px, 1fr)) auto;
+    align-items: end;
+    gap: 15px;
+}
+
+.filters label,
+.form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.filters select,
+.form-grid input {
+    width: 100%;
+    height: 40px;
+    padding: 8px 11px;
+    border: 1px solid var(--borde);
+    border-radius: 7px;
+    background: white;
+    color: var(--texto);
+    outline: none;
+    font-size: 13px;
+}
+
+.filters select:focus,
+.form-grid input:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px rgba(23, 79, 133, 0.10);
+}
+
+/* =====================================================
+   6. BOTONES
+===================================================== */
+
+.btn {
+    border: none;
+    border-radius: 7px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--azul);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--azul-oscuro);
+    transform: translateY(-1px);
+}
+
+.btn-light {
+    background: var(--gris-claro);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+}
+
+.btn-light:hover {
+    background: #e2eaf2;
+}
+
+/* =====================================================
+   7. ENCABEZADOS DE SECCIONES
+===================================================== */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    font-size: 19px;
+    color: var(--azul);
+    font-weight: 700;
+}
+
+.section-heading p {
+    color: var(--gris);
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* =====================================================
+   8. TABLA DE REGISTROS
+===================================================== */
+
+.table-panel {
+    overflow: hidden;
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    min-width: 1250px;
+    border-collapse: collapse;
+    background: white;
+    font-size: 12px;
+}
+
+thead {
+    background: var(--azul);
+    color: white;
+}
+
+thead th {
+    padding: 13px 10px;
+    text-align: center;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+tbody td,
+tfoot td {
+    padding: 11px 9px;
+    text-align: center;
+    border-bottom: 1px solid var(--borde);
+}
+
+tbody tr:nth-child(even) {
+    background: #f7faff;
+}
+
+tbody tr:hover {
+    background: #eaf3fb;
+}
+
+tfoot {
+    background: var(--azul-claro);
+    font-weight: 700;
+    color: var(--azul);
+}
+
+/* =====================================================
+   9. ACCIONES DE TABLA
+===================================================== */
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+    color: var(--gris);
+    font-size: 13px;
+}
+
+/* =====================================================
+   10. RESUMEN PROVINCIAL
+===================================================== */
+
+.summary-section {
+    margin: 30px 0;
+}
+
+.summary-title {
+    font-size: 21px;
+    color: var(--azul);
+    margin-bottom: 17px;
+    font-weight: 700;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.metric {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    min-width: 0;
+}
+
+.metric-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.metric span {
+    display: block;
+    font-size: 12px;
+    color: var(--gris);
+    font-weight: 600;
+}
+
+.metric strong {
+    display: block;
+    font-size: 25px;
+    color: var(--texto);
+    line-height: 1.4;
+}
+
+.metric small {
+    display: block;
+    font-size: 11px;
+    color: var(--gris);
+    line-height: 1.4;
+}
+
+.metric-blue .metric-icon {
+    background: #e6f1ff;
+    color: #2876c6;
+}
+
+.metric-green .metric-icon {
+    background: var(--verde-claro);
+    color: var(--verde);
+}
+
+.metric-purple .metric-icon {
+    background: #f0eaff;
+    color: var(--violeta);
+}
+
+.metric-info .metric-icon {
+    background: #e3f5fa;
+    color: #1689aa;
+}
+
+/* =====================================================
+   11. GRÁFICOS
+===================================================== */
+
+.detail-panel {
+    margin-bottom: 22px;
+}
+
+.chart-wrap {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    max-height: 450px;
+}
+
+/* =====================================================
+   12. MENSAJE INFORMATIVO
+===================================================== */
+
+.hint {
+    padding: 14px 16px;
+    background: var(--azul-claro);
+    border-left: 4px solid var(--azul);
+    border-radius: 5px;
+    color: #42566d;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =====================================================
+   13. VENTANA DE REGISTROS
+===================================================== */
+
+dialog {
+    width: min(700px, 94%);
+    max-height: 90vh;
+    margin: auto;
+    padding: 25px;
+    border: none;
+    border-radius: 13px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+    color: var(--texto);
+    overflow-y: auto;
+}
+
+dialog::backdrop {
+    background: rgba(12, 30, 50, 0.60);
+    backdrop-filter: blur(3px);
+}
+
+.dialog-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.dialog-heading h2 {
+    color: var(--azul);
+    font-size: 21px;
+}
+
+.close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: var(--gris-claro);
+    font-size: 24px;
+    color: var(--gris);
+}
+
+.close:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* FORMULARIO */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-error {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--borde);
+}
+
+/* =====================================================
+   14. RESPONSIVE - TABLETS
+===================================================== */
+
+@media (max-width: 1024px) {
+
     .topbar {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
-        padding: 12px !important;
+        grid-template-columns: 110px minmax(0, 1fr) 110px;
+        gap: 12px;
+        padding: 12px 2%;
+    }
+
+    .brand,
+    .grow-logo {
+        width: 110px;
+    }
+
+    .logo-ministerio,
+    .logo-crecer {
+        width: 95px;
+        height: 95px;
+    }
+
+    .filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* =====================================================
+   15. RESPONSIVE - CELULARES
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .topbar {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 12px;
+        min-height: auto;
+    }
+
+    .brand,
+    .grow-logo {
+        width: 100%;
+        height: 90px;
+    }
+
+    .brand {
+        justify-content: flex-start;
+    }
+
+    .grow-logo {
+        justify-content: flex-end;
+    }
+
+    .logo-ministerio,
+    .logo-crecer {
+        width: 85px;
+        height: 85px;
+        max-width: 85px;
+        max-height: 85px;
     }
 
     .program-title {
         grid-column: 1 / -1;
         grid-row: 2;
+        min-height: 105px;
+        padding: 13px 8px;
     }
+
+    .program-title span {
+        font-size: 10px;
+    }
+
+    .program-title h1 {
+        font-size: 24px;
+    }
+
+    .program-title small {
+        font-size: 12px;
+    }
+
+    .container {
+        width: 94%;
+        margin-top: 15px;
+    }
+
+    .panel {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
+    }
+
+    .section-heading .btn {
+        width: 100%;
+    }
+
+    .metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .metric {
+        padding: 15px;
+    }
+
+    .metric strong {
+        font-size: 22px;
+    }
+
+    .chart-wrap {
+        height: 280px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    dialog {
+        padding: 18px;
+    }
+
+    .dialog-actions {
+        flex-direction: column-reverse;
+    }
+
+    .dialog-actions .btn {
+        width: 100%;
+    }
+
+    .table-actions {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* =====================================================
+   16. PANTALLAS PEQUEÑAS
+===================================================== */
+
+@media (max-width: 360px) {
 
     .logo-ministerio,
     .logo-crecer {
-        width: 95px !important;
-        height: 95px !important;
+        width: 72px;
+        height: 72px;
     }
+
+    .program-title h1 {
+        font-size: 21px;
+    }
+
+    .program-title span {
+        font-size: 9px;
+    }
+
 }
