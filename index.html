@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crecer Sanos - PROSANE La Rioja</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">✚</div>
+      <div><strong>Ministerio de Salud</strong><span>Argentina · La Rioja</span></div>
+    </div>
+    <div class="program-title">
+      <span>PROGRAMA NACIONAL DE SALUD ESCOLAR (PROSANE)</span>
+      <h1>Crecer Sanos</h1>
+      <small>Provincia de La Rioja</small>
+    </div>
+    <div class="grow-logo"><span>●</span><strong>Crecer Sanos</strong></div>
+  </header>
+
+  <main class="container">
+    <section class="filters panel">
+      <label>CAPS
+        <select id="filterCaps"><option value="">Todos</option></select>
+      </label>
+      <label>Localidad
+        <select id="filterLocalidad"><option value="">Todas</option></select>
+      </label>
+      <label>Institución Educativa
+        <select id="filterEscuela"><option value="">Todas</option></select>
+      </label>
+      <label>Período
+        <select id="filterPeriodo"><option value="">Todos</option></select>
+      </label>
+      <button id="clearFilters" class="btn btn-light">Limpiar filtros</button>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="section-heading">
+        <div><h2>Resumen de controles por CAPS</h2><p>Información de salud escolar registrada en el sistema</p></div>
+        <button class="btn btn-primary" id="addRecordBtn">＋ Nuevo registro</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>N.º</th><th>CAPS</th><th>Localidad</th><th>Institución Educativa</th><th>Período</th>
+            <th>Matrícula</th><th>Alumnos controlados</th><th>Controles de chagas</th><th>Vacunación</th>
+            <th>Valoración nutricional</th><th>Patologías detectadas</th><th>Resultados odontológicos</th><th></th>
+          </tr></thead>
+          <tbody id="recordsBody"></tbody>
+          <tfoot id="recordsFoot"></tfoot>
+        </table>
+      </div>
+      <div class="table-actions">
+        <span id="recordCount">0 registros</span>
+        <button class="btn btn-light" id="exportCsv">⇩ Exportar CSV</button>
+      </div>
+    </section>
+
+    <section class="summary-section">
+      <h2 class="summary-title">Resumen Provincial</h2>
+      <div class="metrics">
+        <article class="metric metric-blue"><div class="metric-icon">♟</div><div><span>Matrícula Total</span><strong id="totalMatricula">0</strong></div></article>
+        <article class="metric metric-green"><div class="metric-icon">✓</div><div><span>Alumnos Controlados</span><strong id="totalControlados">0</strong></div></article>
+        <article class="metric metric-purple"><div class="metric-icon">▥</div><div><span>Cobertura</span><strong id="coverage">0%</strong></div></article>
+        <article class="metric metric-info"><div class="metric-icon">i</div><div><span>Información importante</span><small id="updatedInfo">Datos de ejemplo · Actualizados al 30/04/2025</small></div></article>
+      </div>
+    </section>
+
+    <section class="panel detail-panel">
+      <div class="section-heading"><div><h2>Indicadores de salud escolar</h2><p>Comparación de las principales acciones registradas</p></div></div>
+      <div class="chart-wrap"><canvas id="indicatorsChart"></canvas></div>
+    </section>
+
+    <section class="panel detail-panel">
+      <div class="section-heading"><div><h2>Detalle de registros</h2><p>Seleccioná un registro para editarlo o eliminarlo desde la tabla superior.</p></div></div>
+      <p class="hint">Este prototipo guarda los cambios en el navegador mediante almacenamiento local. Para un sistema multiusuario y con información real se necesita un servidor, base de datos, usuarios y controles de seguridad.</p>
+    </section>
+  </main>
+
+  <dialog id="recordDialog">
+    <form id="recordForm" method="dialog">
+      <div class="dialog-heading"><h2 id="dialogTitle">Nuevo registro</h2><button type="button" class="close" id="closeDialog">×</button></div>
+      <input type="hidden" id="recordId">
+      <div class="form-grid">
+        <label>CAPS<input id="caps" required placeholder="Ej. CAPS Centro"></label>
+        <label>Localidad<input id="localidad" required placeholder="Ej. La Rioja"></label>
+        <label>Institución Educativa<input id="escuela" required placeholder="Ej. Escuela N.º 123"></label>
+        <label>Período<input id="periodo" type="number" min="2000" max="2100" required value="2025"></label>
+        <label>Matrícula<input id="matricula" type="number" min="0" required value="0"></label>
+        <label>Alumnos controlados<input id="controlados" type="number" min="0" required value="0"></label>
+        <label>Controles de Chagas<input id="chagas" type="number" min="0" required value="0"></label>
+        <label>Vacunación<input id="vacunacion" type="number" min="0" required value="0"></label>
+        <label>Valoración nutricional<input id="nutricion" type="number" min="0" required value="0"></label>
+        <label>Patologías detectadas<input id="patologias" type="number" min="0" required value="0"></label>
+        <label>Resultados odontológicos<input id="odontologia" type="number" min="0" required value="0"></label>
+      </div>
+      <p class="form-error" id="formError"></p>
+      <div class="dialog-actions"><button type="button" class="btn btn-light" id="cancelDialog">Cancelar</button><button class="btn btn-primary" type="submit">Guardar registro</button></div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
