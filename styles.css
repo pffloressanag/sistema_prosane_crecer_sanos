@@ -77,3 +77,84 @@ body{margin:0;background:#f2f6fb;color:#203047;font-family:Arial,Helvetica,sans-
     height: 130px;
     object-fit: contain;
 }
+
+
+/* ENCABEZADO PROSANE */
+.topbar {
+    display: grid !important;
+    grid-template-columns: 160px minmax(0, 1fr) 160px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 25px !important;
+
+    width: 100% !important;
+    min-height: 160px !important;
+    height: auto !important;
+    padding: 15px 4% !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
+}
+
+/* LOGO MINISTERIO */
+.brand {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+}
+
+.logo-ministerio {
+    width: 125px !important;
+    height: 125px !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+}
+
+/* TÍTULO CENTRAL */
+.program-title {
+    width: 100% !important;
+    min-width: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* LOGO CRECER SANOS */
+.grow-logo {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+}
+
+.logo-crecer {
+    width: 135px !important;
+    height: 125px !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+}
+
+/* EVITAR DESBORDAMIENTO */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 768px) {
+    .topbar {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        padding: 12px !important;
+    }
+
+    .program-title {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .logo-ministerio,
+    .logo-crecer {
+        width: 95px !important;
+        height: 95px !important;
+    }
+}
